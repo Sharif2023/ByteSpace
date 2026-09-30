@@ -210,89 +210,82 @@ export default function CourseDetailsPage({ initialTab = 'description', onNaviga
           </div>
         )}
 
-        {/* TAB 2: COURSE LESSONS (Curriculum Frame 5) */}
+        {/* TAB 2: COURSE LESSONS */}
         {activeTab === 'lessons' && (
-          <div className="max-w-4xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-gray-100 shadow-xs">
-              <div>
-                <h2 className="text-xl font-bold font-display text-gray-950">Curriculum & Modules</h2>
-                <p className="text-xs text-gray-500 mt-1">10 total modules • 24 hours of comprehensive lessons</p>
-              </div>
+          <div className="space-y-10">
+            <div>
+              <h2 className="text-[22px] font-bold font-display text-gray-950 mb-4">Explore the Modules</h2>
+              <p className="text-gray-600 text-base leading-relaxed text-justify">
+                Immerse yourself in the course content as we break down each module into comprehensive lessons, providing practical insights and hands-on experiences.
+              </p>
+            </div>
 
-              {/* Progress Tracker */}
-              <div className="flex items-center gap-4">
-                <div className="text-right">
-                  <p className="text-xs text-gray-400 font-medium">Completed</p>
-                  <p className="text-lg font-black text-gray-950 font-display">2 / 10 Lessons (20%)</p>
-                </div>
-                <div className="w-24 bg-gray-100 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-[#D6FD04] h-full w-[20%] rounded-full" />
-                </div>
+            <div>
+              <h3 className="text-xl font-bold font-display text-gray-950 mb-6">Lesson List</h3>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Module 1: Introduction to Digital Assets",
+                    desc: "Lay the groundwork with lessons like 'Understanding Digital Elements' and 'Navigating Design Software Tools.' Dive into the essentials of digital asset creation."
+                  },
+                  {
+                    title: "Module 2: Design Principles for Impact",
+                    desc: "Master the principles that drive impactful designs with lessons such as 'Color Theory in Digital Design' and 'Typography Essentials.' Elevate your visual communication skills."
+                  },
+                  {
+                    title: "Module 4: User-Centric Design Strategies",
+                    desc: "Understand 'Design Thinking in Digital Creation' and delve into 'User Experience (UX) Essentials.' Craft digital assets with a focus on user-centric design."
+                  },
+                  {
+                    title: "Module 5: Interactive Media and Engagement",
+                    desc: "Engage your audience with lessons like 'Creating Interactive Presentations' and 'Integrating Multimedia Elements.' Master the art of creating immersive digital experiences."
+                  },
+                  {
+                    title: "Module 6: Project Showcase and Critique",
+                    desc: "Perfect your presentation skills with 'Effective Presentation Techniques' and embrace collaboration with 'Peer Critique and Collaboration.' Showcase your work with confidence."
+                  },
+                  {
+                    title: "Module 7: Optimizing Digital Assets for Various Platforms",
+                    desc: "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes."
+                  }
+                ].map((mod, idx) => (
+                  <div key={idx} className="flex gap-5">
+                    <div className="w-[60px] h-[60px] rounded-[20px] bg-[#D6FD04] flex items-center justify-center flex-shrink-0">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-900 w-6 h-6">
+                        <path d="M23 7l-7 5 7 5V7z" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-[16px] font-semibold text-gray-900 mb-1.5">{mod.title}</h4>
+                      <p className="text-sm text-gray-500 leading-relaxed pr-0 md:pr-4">{mod.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Curriculum Sections Accordion matching Frame 5 */}
-            <div className="space-y-6">
-              {courseCurriculum.map((section, sIdx) => (
-                <div key={sIdx} className="bg-white rounded-3xl border border-gray-100 shadow-xs overflow-hidden">
-                  <div className="bg-gray-50/80 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-gray-900 font-display">{section.section}</h3>
-                    <span className="text-xs text-gray-500 font-medium">{section.lessons.length} Lessons</span>
-                  </div>
+            <div>
+              <h3 className="text-[20px] font-bold font-display text-gray-950 mb-4">Lesson Content</h3>
+              <p className="text-gray-600 text-base leading-relaxed text-justify">
+                Engage with each lesson through captivating video content, detailed textual explanations, and interactive elements. Download resources, complete assignments, and test your understanding with quizzes.
+              </p>
+            </div>
 
-                  <div className="divide-y divide-gray-100">
-                    {section.lessons.map(lesson => {
-                      const isActive = activeLessonId === lesson.id;
-                      return (
-                        <div
-                          key={lesson.id}
-                          onClick={() => {
-                            setActiveLessonId(lesson.id);
-                            if (lesson.isFree || enrolled) setIsPlaying(true);
-                          }}
-                          className={`p-4 px-6 flex items-center justify-between hover:bg-blue-50/40 transition-colors cursor-pointer ${
-                            isActive ? 'bg-blue-50/30' : ''
-                          }`}
-                        >
-                          <div className="flex items-center gap-3.5">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs ${
-                              lesson.completed 
-                                ? 'bg-emerald-100 text-emerald-700' 
-                                : lesson.isFree || enrolled
-                                  ? 'bg-[#003BE2]/10 text-[#003BE2]'
-                                  : 'bg-gray-100 text-gray-400'
-                            }`}>
-                              {lesson.completed ? (
-                                <CheckCircle2 className="w-4 h-4" />
-                              ) : lesson.isFree || enrolled ? (
-                                <Play className="w-3.5 h-3.5 fill-current" />
-                              ) : (
-                                <Lock className="w-3.5 h-3.5" />
-                              )}
-                            </div>
-
-                            <div>
-                              <p className={`text-sm font-semibold ${isActive ? 'text-blue-700 font-bold' : 'text-gray-900'}`}>
-                                {lesson.title}
-                              </p>
-                              <p className="text-[11px] text-gray-400">{lesson.duration}</p>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-3">
-                            {lesson.isFree && !enrolled && (
-                              <span className="text-[10px] uppercase font-bold bg-[#D6FD04] text-gray-950 px-2 py-0.5 rounded-full">
-                                Free Preview
-                              </span>
-                            )}
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+            <div>
+              <h3 className="text-[20px] font-bold font-display text-gray-950 mb-4">Lesson Progress Tracking</h3>
+              <p className="text-gray-600 text-base leading-relaxed text-justify mb-8">
+                Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you through your learning journey.
+              </p>
+              
+              {/* Progress Card */}
+              <div className="border border-gray-200 rounded-xl p-6 sm:p-7 shadow-sm w-full">
+                <p className="text-[13px] text-gray-900 font-medium mb-1">Learning Progress</p>
+                <p className="text-[32px] font-bold font-display text-gray-950 mb-3 leading-none">55%</p>
+                <div className="w-full bg-gray-100 h-[6px] rounded-full overflow-hidden mt-6">
+                  <div className="bg-[#D6FD04] h-full rounded-full w-[55%]"></div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         )}
