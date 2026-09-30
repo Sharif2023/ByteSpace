@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  LimeTorus,
   LimeScribble,
   WhiteScribble,
-  WhitePyramid
+  WhitePyramid,
+  LimeCylinder
 } from '../common/Decorations';
 
 const shapeVariants = {
@@ -26,52 +26,53 @@ const shapeVariants = {
 export default function HeroDecorations() {
   return (
     <>
-      {/* Flat neon green squiggle on the top left */}
+
+      {/* Top Left: Large Lime Twister */}
       <motion.div 
         custom={0}
         variants={shapeVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="absolute top-28 left-6 sm:left-12 pointer-events-none hidden md:block"
+        className="absolute top-16 left-0 lg:-left-4 z-10 pointer-events-none hidden md:block"
       >
-        <LimeScribble className="w-32 h-44" />
+        <LimeScribble className="w-56 lg:w-72" />
+      </motion.div>
+
+      {/* Top Left (Inner): Small White Twister */}
+      <motion.div 
+        custom={0.5}
+        variants={shapeVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="absolute top-44 left-24 lg:top-64 lg:left-40 z-0 pointer-events-none hidden md:block"
+      >
+        <WhiteScribble className="w-32 lg:w-48 transform -scale-x-100" />
       </motion.div>
       
-      {/* Flat neon green ring on the bottom left */}
+      {/* Middle Right (Inner): White Cone */}
       <motion.div 
         custom={1}
         variants={shapeVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="absolute bottom-24 left-[10%] pointer-events-none hidden lg:block"
+        className="absolute top-64 right-[15%] lg:right-32 pointer-events-none hidden md:block"
       >
-        <LimeTorus className="w-36 h-36" rotate={15} />
-      </motion.div>
-      
-      {/* Flat white triangle on the right side */}
-      <motion.div 
-        custom={2}
-        variants={shapeVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="absolute top-32 right-12 sm:right-24 pointer-events-none hidden md:block"
-      >
-        <WhitePyramid className="w-28 h-28" />
+        <WhitePyramid className="w-20 h-20 lg:w-28 lg:h-28" />
       </motion.div>
 
-      {/* Flat white squiggle on the right side */}
+      {/* Middle Right (Edge): Lime Cylinder */}
       <motion.div 
-        custom={3}
+        custom={1.5}
         variants={shapeVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="absolute bottom-32 right-[12%] pointer-events-none hidden lg:block"
+        className="absolute top-52 -right-8 pointer-events-none hidden md:block"
       >
-        <WhiteScribble className="w-32 h-44" style={{ transform: 'scaleX(-1)' }} />
+        <LimeCylinder className="w-36 h-48 lg:w-44 lg:h-60" />
       </motion.div>
     </>
   );

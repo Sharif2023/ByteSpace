@@ -34,7 +34,7 @@ export default function Navbar({ activePage = 'home', onNavigate, cartCount = 1 
                 <button
                   key={link.id}
                   onClick={() => onNavigate && onNavigate(link.id)}
-                  className={`text-[15px] font-medium transition-colors duration-150 py-1 ${
+                  className={`text-[15px] font-normal transition-colors duration-150 py-1 ${
                     isActive 
                       ? 'text-[#D6FD04]' 
                       : 'text-white/90 hover:text-white'
