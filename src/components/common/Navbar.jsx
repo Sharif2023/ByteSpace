@@ -50,14 +50,14 @@ export default function Navbar({ activePage = 'home', onNavigate, cartCount = 1 
           <div className="hidden md:flex items-center space-x-6 justify-end flex-shrink-0">
             <button
               onClick={() => onNavigate && onNavigate('login')}
-              className="text-[15px] font-medium text-white hover:text-[#D6FD04] transition-colors cursor-pointer"
+              className="text-[15px] font-normal text-white hover:text-[#D6FD04] transition-colors cursor-pointer"
             >
               Sign In
             </button>
 
             <button
               onClick={() => onNavigate && onNavigate('register')}
-              className="text-[15px] font-medium text-white hover:text-[#D6FD04] transition-colors cursor-pointer"
+              className="text-[15px] font-normal text-white hover:text-[#D6FD04] transition-colors cursor-pointer"
             >
               Join Us
             </button>
