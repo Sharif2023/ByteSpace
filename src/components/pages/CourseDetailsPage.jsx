@@ -290,79 +290,142 @@ export default function CourseDetailsPage({ initialTab = 'description', onNaviga
           </div>
         )}
 
-        {/* TAB 3: REVIEWS (Course Reviews Frame 4) */}
+        {/* TAB 3: REVIEWS */}
         {activeTab === 'reviews' && (
-          <div className="max-w-4xl space-y-10">
+          <div className="space-y-8">
             
-            {/* Reviews Summary Box matching Frame 4 */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            {/* Header Section */}
+            <div>
+              <h2 className="text-[22px] font-bold font-display text-gray-950 mb-4">What Learners Are Saying</h2>
+              <p className="text-gray-600 text-base leading-relaxed text-justify">
+                Discover what our learners have to say about their experience with 'Build Digital Assets: A Comprehensive Guide.' Read reviews and ratings from individuals who have embarked on the transformative journey of mastering digital asset creation.
+              </p>
+            </div>
+
+            {/* Reviews Summary Box */}
+            <div className="border border-gray-200 rounded-[24px] p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-center max-w-3xl">
               
-              {/* Overall Score */}
-              <div className="md:col-span-4 text-center border-b md:border-b-0 md:border-r border-gray-100 pb-6 md:pb-0 md:pr-6">
-                <span className="text-5xl font-black text-gray-950 font-display">4.7</span>
-                <div className="flex items-center justify-center gap-1 my-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-xs text-gray-500 font-medium">Based on 189 student reviews</p>
+              {/* Left Score Box */}
+              <div className="w-[140px] h-[140px] bg-[#D6FD04] rounded-2xl flex flex-col items-center justify-center flex-shrink-0">
+                <span className="text-[15px] font-medium text-gray-900 mb-1">Ratings</span>
+                <span className="text-[42px] font-bold font-display text-gray-950 leading-none">4.7</span>
               </div>
 
-              {/* Star Breakdown Bars matching Frame 4 */}
-              <div className="md:col-span-8 space-y-2 text-xs">
+              {/* Right Bars */}
+              <div className="flex-grow space-y-3 w-full">
                 {[
-                  { star: 5, pct: 82, count: 155 },
-                  { star: 4, pct: 12, count: 23 },
-                  { star: 3, pct: 4, count: 8 },
-                  { star: 2, pct: 1, count: 2 },
-                  { star: 1, pct: 1, count: 1 }
+                  { star: 5, pct: 85, count: 720 },
+                  { star: 4, pct: 25, count: 120 },
+                  { star: 3, pct: 5, count: 21 },
+                  { star: 2, pct: 3, count: 12 },
+                  { star: 1, pct: 3, count: 16 }
                 ].map((row) => (
-                  <div key={row.star} className="flex items-center gap-3">
-                    <span className="w-8 text-gray-600 font-semibold">{row.star} ★</span>
-                    <div className="flex-grow bg-gray-100 h-2 rounded-full overflow-hidden">
+                  <div key={row.star} className="flex items-center gap-4">
+                    <div className="flex-grow bg-gray-200 h-[6px] rounded-full overflow-hidden">
                       <div 
                         className="bg-[#D6FD04] h-full rounded-full" 
                         style={{ width: `${row.pct}%` }} 
                       />
                     </div>
-                    <span className="w-8 text-right text-gray-400 font-medium">{row.pct}%</span>
+                    <div className="flex items-center gap-1 w-24">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={`w-[14px] h-[14px] ${i < row.star ? 'fill-gray-700 text-gray-700' : 'fill-gray-300 text-gray-300'}`} 
+                        />
+                      ))}
+                    </div>
+                    <span className="w-8 text-right text-[13px] text-gray-500 font-medium">{row.count}</span>
                   </div>
                 ))}
               </div>
-
             </div>
 
-            {/* Individual Reviews List matching Frame 4 */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-bold font-display text-gray-950">Student Feedback</h3>
+            {/* Individual Reviews Section */}
+            <div className="space-y-6 pt-4">
+              <h3 className="text-[18px] font-bold font-display text-gray-950">Individual Reviews:</h3>
               
-              {reviewsData.map(rev => (
-                <div key={rev.id} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-xs space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={rev.avatar} 
-                        alt={rev.name} 
-                        className="w-10 h-10 rounded-full object-cover"
-                      />
-                      <div>
-                        <h4 className="text-sm font-bold text-gray-900">{rev.name}</h4>
-                        <span className="text-[11px] text-gray-400">{rev.date}</span>
+              {/* Filters */}
+              <div className="flex flex-wrap items-center gap-3">
+                <button className="px-5 py-2 rounded-full bg-[#D6FD04] text-[13px] font-bold text-gray-900">
+                  All rating
+                </button>
+                {[5, 4, 3, 2, 1].map(num => (
+                  <button key={num} className="px-5 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-[13px] font-medium text-gray-600 flex items-center gap-1.5 transition-colors">
+                    <Star className="w-3.5 h-3.5 fill-gray-500 text-gray-500" />
+                    {num}
+                  </button>
+                ))}
+              </div>
+
+              {/* Review Cards */}
+              <div className="space-y-5">
+                {[
+                  {
+                    id: 1,
+                    name: "PurePearl Studio",
+                    title: "UI/UX Designer",
+                    avatar: creatorProfile.avatar,
+                    date: "a year ago",
+                    rating: 5,
+                    content: "The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!"
+                  },
+                  {
+                    id: 2,
+                    name: "Albert Flores",
+                    title: "UI/UX Designer",
+                    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    date: "a year ago",
+                    rating: 5,
+                    content: "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!"
+                  },
+                  {
+                    id: 3,
+                    name: "Cody Fisher",
+                    title: "UI/UX Designer",
+                    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    date: "a year ago",
+                    rating: 5,
+                    content: "The project showcase and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills. It added a unique and valuable dimension to the learning process."
+                  },
+                  {
+                    id: 4,
+                    name: "Brooklyn Simmons",
+                    title: "UI/UX Designer",
+                    avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+                    date: "a year ago",
+                    rating: 5,
+                    content: "The lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape, and the engaging content kept me motivated throughout."
+                  }
+                ].map(rev => (
+                  <div key={rev.id} className="border border-gray-200 rounded-[20px] p-8 shadow-sm">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={rev.avatar} 
+                          alt={rev.name} 
+                          className="w-11 h-11 rounded-full object-cover"
+                        />
+                        <div>
+                          <h4 className="text-[15px] font-semibold text-gray-900">{rev.name}</h4>
+                          <p className="text-[13px] text-gray-500">{rev.title}</p>
+                        </div>
                       </div>
+                      <span className="text-[13px] text-gray-400 font-medium pt-1">{rev.date}</span>
                     </div>
 
-                    <div className="flex items-center gap-0.5">
+                    <div className="flex items-center gap-1 mb-4">
                       {[...Array(rev.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="w-[18px] h-[18px] fill-gray-700 text-gray-700" />
                       ))}
                     </div>
-                  </div>
 
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    "{rev.content}"
-                  </p>
-                </div>
-              ))}
+                    <p className="text-gray-600 text-[14.5px] leading-relaxed">
+                      {rev.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
