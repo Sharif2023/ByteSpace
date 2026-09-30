@@ -7,7 +7,6 @@ import CreatorProfilePage from './components/pages/CreatorProfilePage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import NotFoundPage from './components/pages/NotFoundPage';
-import ScreenSwitcher from './components/common/ScreenSwitcher';
 import { allCourses } from './data/mockData';
 
 function AppContent() {
@@ -37,17 +36,6 @@ function AppContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Determine active page for ScreenSwitcher widget based on current URL path
-  let activePage = 'home';
-  if (location.pathname === '/search') activePage = 'search';
-  else if (location.pathname === '/course/lessons') activePage = 'course-lessons';
-  else if (location.pathname === '/course/reviews') activePage = 'course-reviews';
-  else if (location.pathname.startsWith('/course')) activePage = 'course-details';
-  else if (location.pathname === '/creator') activePage = 'creator';
-  else if (location.pathname === '/login') activePage = 'login';
-  else if (location.pathname === '/register') activePage = 'register';
-  else if (location.pathname === '/404') activePage = 'notfound';
-
   return (
     <div className="relative min-h-screen bg-white">
       <Routes>
@@ -65,12 +53,6 @@ function AppContent() {
         <Route path="/404" element={<NotFoundPage onNavigate={handleNavigate} />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
-
-      {/* Floating Figma Screen Switcher Widget */}
-      <ScreenSwitcher 
-        activePage={activePage} 
-        onNavigate={handleNavigate} 
-      />
     </div>
   );
 }
