@@ -1,30 +1,49 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import heroImg from '../../assets/landingpage/hero.jpg';
+import { WhiteTorus, WhiteScribble } from '../common/Decorations';
+import { motion } from 'framer-motion';
 
 export default function HeroVisual() {
   return (
     <div className="relative mt-2 sm:mt-4 max-w-5xl mx-auto flex justify-center items-end">
       {/* Huge Lime Circle Backdrop - centered on the bottom edge. Top half visible, bottom half hidden by section overflow */}
-      <div className="absolute bottom-0 w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] rounded-full bg-[#D6FD04] translate-y-1/2 -z-0" />
+      <div className="absolute bottom-0 w-[700px] h-[700px] sm:w-[1150px] sm:h-[1150px] rounded-full bg-[#D6FD04] translate-y-[55%] -z-0" />
 
       {/* Student Image Cutout - scaled up and attached to the bottom edge */}
-      <div className="relative z-10 w-[350px] sm:w-[680px] h-[350px] sm:h-[620px] flex items-end justify-center mb-0 mt-4 sm:mt-6">
-        <img 
-          src={heroImg} 
+      <div className="relative z-10 w-[420px] sm:w-[860px] h-[420px] sm:h-[800px] flex items-end justify-center mb-0 mt-4 sm:mt-6">
+        <img
+          src={heroImg}
           alt="Student learning"
           className="w-full h-full object-contain object-bottom drop-shadow-2xl"
         />
+
+        {/* 3D Shapes around the boy */}
+        {/* Large White Torus (Left) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }}
+          className="absolute -left-36 sm:-left-64 bottom-8 sm:bottom-16 z-0 w-40 sm:w-64 pointer-events-none transform rotate-[15deg]"
+        >
+          <WhiteTorus className="w-full" />
+        </motion.div>
+
+        {/* Large White Twister (Right) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}
+          className="absolute -right-44 sm:-right-64 bottom-16 sm:bottom-32 z-20 w-40 sm:w-64 pointer-events-none transform -rotate-[20deg]"
+        >
+          <WhiteScribble className="w-full" />
+        </motion.div>
       </div>
 
       {/* Floating Card 1: UI/UX Design (Left) */}
-      <div className="absolute -left-2 sm:left-12 top-24 sm:top-40 z-20 bg-white rounded-[16px] p-4 sm:p-5 text-left shadow-[0_15px_30px_-5px_rgba(0,30,120,0.15)] animate-float-medium w-[180px] sm:w-[200px]">
+      <div className="absolute left-8 sm:left-32 top-48 sm:top-72 z-20 bg-white rounded-[16px] p-4 sm:p-5 text-left shadow-[0_15px_30px_-5px_rgba(0,30,120,0.15)] animate-float-medium w-[180px] sm:w-[200px]">
         <p className="text-sm sm:text-base font-bold text-gray-900 font-display">UI/UX Design</p>
         <p className="text-[10px] sm:text-xs text-gray-500 mt-1 font-medium">20+ Courses | 50+ Students</p>
       </div>
 
       {/* Floating Card 2: Learning Progress (Right) */}
-      <div className="absolute -right-2 sm:right-12 top-32 sm:top-56 z-20 bg-white rounded-[16px] p-4 sm:p-5 text-left shadow-[0_15px_30px_-5px_rgba(0,30,120,0.15)] animate-float-delayed-2 w-[160px] sm:w-[190px]">
+      <div className="absolute right-8 sm:right-32 top-56 sm:top-80 z-20 bg-white rounded-[16px] p-4 sm:p-5 text-left shadow-[0_15px_30px_-5px_rgba(0,30,120,0.15)] animate-float-delayed-2 w-[160px] sm:w-[190px]">
         <p className="text-[11px] sm:text-xs text-gray-500 font-medium">Learning Progress</p>
         <div className="mt-1">
           <p className="text-3xl sm:text-4xl font-black text-gray-950 font-display leading-tight">55%</p>

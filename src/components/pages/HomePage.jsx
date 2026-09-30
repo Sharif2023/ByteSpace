@@ -65,22 +65,60 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
       {/* 1.5. LOGO BAR SECTION */}
       {/* ============================================================== */}
       <section className="bg-[#F8F9FA] py-12 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center sm:justify-between items-center gap-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center sm:justify-between items-center gap-8">
           {[
             // Logo 1: Filled circle with waves
-            <svg key="1" className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-5 8.5c1.23 0 2.27.77 2.7 1.86.37-.21.8-.36 1.3-.36s.93.15 1.3.36c.43-1.09 1.47-1.86 2.7-1.86 1.66 0 3 1.34 3 3 0 1.43-1 2.64-2.35 2.93-.34.78-1.12 1.32-2.05 1.32-.93 0-1.71-.54-2.05-1.32A3.007 3.007 0 0110 16.5c-1.66 0-3-1.34-3-3 0-1.66 1.34-3 3-3z"/></svg>,
-            // Logo 2: Sunburst filled
-            <svg key="2" className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 6a6 6 0 100 12 6 6 0 000-12zM2 11h3v2H2v-2zm17 0h3v2h-3v-2zM11 2h2v3h-2V2zm0 17h2v3h-2v-3zM5.51 7.02l2.12-2.12 1.41 1.41-2.12 2.12-1.41-1.41zm11.56 11.36l2.12-2.12 1.41 1.41-2.12 2.12-1.41-1.41zm-9.44 0l-2.12-2.12 1.41-1.41 2.12 2.12-1.41 1.41zm11.36-9.95l-2.12-2.12-1.41 1.41 2.12 2.12 1.41-1.41z"/></svg>,
+            <svg key="1" className="w-8 h-8 text-gray-500" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="currentColor" />
+              <path d="M -5 10 Q 10 0 20 10 T 45 10" stroke="#F8F9FA" strokeWidth="2.5" fill="none" />
+              <path d="M -5 17 Q 10 7 20 17 T 45 17" stroke="#F8F9FA" strokeWidth="2.5" fill="none" />
+              <path d="M -5 24 Q 10 14 20 24 T 45 24" stroke="#F8F9FA" strokeWidth="2.5" fill="none" />
+              <path d="M -5 31 Q 10 21 20 31 T 45 31" stroke="#F8F9FA" strokeWidth="2.5" fill="none" />
+            </svg>,
+            // Logo 2: Sunburst hollow
+            <svg key="2" className="w-8 h-8 text-gray-500" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="7.5" stroke="currentColor" strokeWidth="3.5" />
+              <g stroke="currentColor" strokeWidth="3.5" strokeLinecap="square">
+                <line x1="20" y1="0" x2="20" y2="7" />
+                <line x1="20" y1="33" x2="20" y2="40" />
+                <line x1="20" y1="0" x2="20" y2="7" transform="rotate(30 20 20)" />
+                <line x1="20" y1="33" x2="20" y2="40" transform="rotate(30 20 20)" />
+                <line x1="20" y1="0" x2="20" y2="7" transform="rotate(60 20 20)" />
+                <line x1="20" y1="33" x2="20" y2="40" transform="rotate(60 20 20)" />
+                <line x1="20" y1="0" x2="20" y2="7" transform="rotate(90 20 20)" />
+                <line x1="20" y1="33" x2="20" y2="40" transform="rotate(90 20 20)" />
+                <line x1="20" y1="0" x2="20" y2="7" transform="rotate(120 20 20)" />
+                <line x1="20" y1="33" x2="20" y2="40" transform="rotate(120 20 20)" />
+                <line x1="20" y1="0" x2="20" y2="7" transform="rotate(150 20 20)" />
+                <line x1="20" y1="33" x2="20" y2="40" transform="rotate(150 20 20)" />
+              </g>
+            </svg>,
             // Logo 3: Circle with lightning bolt
-            <svg key="3" className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-.5 16v-5.5H8L13.5 6v5.5H16L11.5 18z"/></svg>,
-            // Logo 4: Abstract clover filled
-            <svg key="4" className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a4.5 4.5 0 00-4.5 4.5c0 1.05.37 2.01.97 2.76L5.76 6.53A4.5 4.5 0 108.53 9.3l2.71 2.71-2.71 2.71A4.5 4.5 0 1012 22a4.5 4.5 0 004.5-4.5c0-1.05-.37-2.01-.97-2.76l2.71-2.71a4.5 4.5 0 10-2.76-2.77L12.77 12l2.71-2.71A4.5 4.5 0 0012 2z"/></svg>,
+            <svg key="3" className="w-8 h-8 text-gray-500" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="currentColor" />
+              <path d="M25 8 L12 21 H19 L15 32 L28 19 H21 Z" fill="#F8F9FA" />
+            </svg>,
+            // Logo 4: Four circles
+            <svg key="4" className="w-8 h-8 text-gray-500" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="20" fill="currentColor" />
+              <circle cx="15.5" cy="15.5" r="4.5" fill="#F8F9FA" />
+              <circle cx="24.5" cy="15.5" r="4.5" fill="#F8F9FA" />
+              <circle cx="15.5" cy="24.5" r="4.5" fill="#F8F9FA" />
+              <circle cx="24.5" cy="24.5" r="4.5" fill="#F8F9FA" />
+            </svg>,
             // Logo 5: Concentric circles
-            <svg key="5" className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            <svg key="5" className="w-8 h-8 text-gray-500" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="18" cy="18" r="15.5" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="14" cy="14" r="8.5" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="10" cy="10" r="2.5" fill="currentColor" />
+            </svg>
           ].map((icon, idx) => (
             <div key={idx} className="flex items-center gap-2.5">
               {icon}
-              <span className="text-[22px] font-black font-display text-gray-400 tracking-tight">Logoipsum</span>
+              <span className="text-xl font-bold font-sans text-gray-500 tracking-tight">Logoipsum</span>
             </div>
           ))}
         </div>
@@ -96,7 +134,7 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
           <h2 className="text-4xl sm:text-5xl font-black text-gray-950 font-display leading-[1.1]">
             Discover Your Passion,<br />Build Your Skills
           </h2>
-          <p className="mt-6 text-gray-500 text-[15px] sm:text-base leading-relaxed max-w-3xl mx-auto font-medium">
+          <p className="mt-6 text-gray-500 text-[15px] sm:text-base leading-relaxed max-w-4xl mx-auto font-medium">
             At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life.
           </p>
         </div>
@@ -229,11 +267,11 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
       {/* ============================================================== */}
       <section className="py-24 bg-[#FAFCFF] relative overflow-hidden">
         {/* Soft lime glow top left (Behind Boy Section text) */}
-        <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#E8F8CE] opacity-70 blur-[120px] pointer-events-none rounded-full"></div>
+        <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-[#D6FD04] opacity-20 blur-[140px] pointer-events-none rounded-full"></div>
         {/* Soft lime glow bottom left (Behind Girl image) */}
-        <div className="absolute bottom-10 -left-40 w-[600px] h-[600px] bg-[#E8F8CE] opacity-60 blur-[130px] pointer-events-none rounded-full"></div>
+        <div className="absolute bottom-0 -left-20 w-[700px] h-[700px] bg-[#D6FD04] opacity-30 blur-[150px] pointer-events-none rounded-full"></div>
         {/* Soft blue glow right middle (Behind Girl text) */}
-        <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#DDE9FA] opacity-50 blur-[100px] pointer-events-none rounded-full"></div>
+        <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#003BE2] opacity-10 blur-[120px] pointer-events-none rounded-full"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -289,9 +327,9 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                className="absolute right-4 lg:right-6 top-10 lg:top-16 z-0 w-40 lg:w-64 pointer-events-none drop-shadow-2xl"
+                className="absolute -right-4 lg:-right-8 top-1/3 z-50 w-32 lg:w-48 pointer-events-none drop-shadow-2xl"
               >
-                <LimeScribble className="w-full h-full" />
+                <LimeScribble className="w-full h-full transform -rotate-[15deg]" />
               </motion.div>
 
               {/* Floating Progress Card (Right) */}
@@ -316,7 +354,7 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
             <div className="lg:col-span-6 relative flex justify-center lg:justify-start items-end order-2 lg:order-1 pt-10 lg:pt-0">
               
               {/* Creator Photo (Cutout) - Higher z-index to overlap blue cards */}
-              <div className="relative z-30 w-[320px] lg:w-[580px] flex justify-start items-end">
+              <div className="relative z-30 w-[320px] lg:w-[580px] flex justify-start items-end ml-4 sm:ml-12 lg:ml-24">
                 <img 
                   src={girlImg} 
                   alt="ByteSpace Creator"
@@ -331,9 +369,9 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                className="absolute right-0 lg:-right-10 top-20 lg:top-40 z-10 w-40 lg:w-64 pointer-events-none drop-shadow-2xl"
+                className="absolute right-0 lg:-right-8 top-1/4 lg:top-24 z-50 w-32 lg:w-48 pointer-events-none drop-shadow-2xl"
               >
-                <LimeScribble className="w-full h-full transform -rotate-[15deg]" />
+                <LimeScribble className="w-full h-full transform rotate-[15deg]" />
               </motion.div>
 
               {/* Blue Floating Revenue Card 1 */}
@@ -361,8 +399,8 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
               </div>
 
               {/* Happy Students Card */}
-              <div className="absolute right-0 lg:right-0 bottom-16 lg:bottom-24 z-40 bg-white rounded-[20px] p-5 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-50 min-w-[230px]">
-                <p className="text-[15px] font-extrabold text-gray-900 font-display">Happy Students</p>
+              <div className="absolute right-0 lg:-right-8 xl:-right-12 bottom-16 lg:bottom-24 z-40 bg-white rounded-[20px] p-5 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-50 min-w-[230px]">
+                <p className="text-[15px] font-bold text-gray-900 font-display">Happy Students</p>
                 <div className="flex items-center gap-1.5 mt-1 text-[13px] text-gray-800 font-semibold">
                   <span>4.5</span>
                   <span className="text-gray-400 font-medium text-[12px]">(240)</span>
@@ -387,32 +425,40 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
               </h2>
 
               <p className="text-gray-600 text-base leading-relaxed">
-                ByteSpace supports individuals or entities in the creation, publication, and administration of educational courses.
+                <span className="font-semibold text-gray-950">ByteSpace</span> supports individuals or entities in the creation, publication, and administration of educational courses.
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#003BE2] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-base">Flexibility and Autonomy</h4>
-                    <p className="text-sm text-gray-600">Deliver on-demand lessons, live sessions, or self-paced masterclasses with full ownership.</p>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                    <circle cx="14" cy="14" r="14" fill="#003BE2" />
+                    <path d="M8 14L12.5 18.5L20 9.5" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[17px] font-medium text-[#111827]">Share Your Expertise</span>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#003BE2] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-base">Instant Monetization</h4>
-                    <p className="text-sm text-gray-600">Keep up to 90% of your course revenue with immediate global payment settlements.</p>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                    <circle cx="14" cy="14" r="14" fill="#003BE2" />
+                    <path d="M8 14L12.5 18.5L20 9.5" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[17px] font-medium text-[#111827]">Monetize Your Passion</span>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-[#003BE2] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-base">Global Community Reach</h4>
-                    <p className="text-sm text-gray-600">Tap into our network of enthusiastic learners eager for high-value creator content.</p>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                    <circle cx="14" cy="14" r="14" fill="#003BE2" />
+                    <path d="M8 14L12.5 18.5L20 9.5" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[17px] font-medium text-[#111827]">Flexibility and Autonomy</span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
+                    <circle cx="14" cy="14" r="14" fill="#003BE2" />
+                    <path d="M8 14L12.5 18.5L20 9.5" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-[17px] font-medium text-[#111827]">Build a Community</span>
                 </div>
               </div>
 
@@ -439,31 +485,31 @@ export default function HomePage({ onNavigate, onSelectCourse }) {
         
         {/* 3D Shapes */}
         {/* Top Left: Lime Twister (Outer) */}
-        <motion.div custom={0} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -top-12 -left-12 sm:-left-6 pointer-events-none drop-shadow-2xl z-0 w-20 sm:w-40 transform -rotate-[20deg] hidden sm:block">
+        <motion.div custom={0} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -top-12 -left-6 sm:-left-2 pointer-events-none drop-shadow-2xl z-0 w-32 sm:w-48 transform -rotate-[20deg] hidden sm:block">
           <LimeScribble className="w-full h-full" />
         </motion.div>
         {/* Top Left: White Spring (Inner) */}
-        <motion.div custom={1} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute top-16 left-20 sm:left-32 pointer-events-none drop-shadow-2xl z-0 w-16 sm:w-20 transform rotate-12 hidden md:block">
+        <motion.div custom={1} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute top-12 left-16 sm:left-24 pointer-events-none drop-shadow-2xl z-0 w-20 sm:w-28 transform rotate-12 hidden md:block">
           <WhiteScribble className="w-full h-full" />
         </motion.div>
         {/* Bottom Left: White Cone */}
-        <motion.div custom={2} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-16 -left-16 sm:-left-12 pointer-events-none drop-shadow-2xl z-20 w-20 sm:w-40 transform rotate-12 hidden sm:block">
+        <motion.div custom={2} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-10 -left-10 sm:-left-6 pointer-events-none drop-shadow-2xl z-20 w-32 sm:w-48 transform rotate-[30deg] hidden sm:block">
           <WhitePyramid className="w-full h-full" />
         </motion.div>
-        {/* Bottom Center-Left: Lime Ring */}
-        <motion.div custom={3} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-32 left-[15%] sm:left-[20%] pointer-events-none drop-shadow-2xl z-0 w-28 sm:w-48 hidden lg:block">
+        {/* Bottom Left: Lime Ring */}
+        <motion.div custom={3} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-16 left-16 sm:left-32 pointer-events-none drop-shadow-2xl z-0 w-40 sm:w-56 hidden lg:block">
           <LimeTorus className="w-full h-full" />
         </motion.div>
         {/* Top Right: White Cylinder */}
-        <motion.div custom={4} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -top-8 -right-12 sm:-right-8 pointer-events-none drop-shadow-2xl z-0 w-20 sm:w-40 transform rotate-[15deg] hidden sm:block">
+        <motion.div custom={4} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -top-10 -right-6 sm:-right-8 pointer-events-none drop-shadow-2xl z-0 w-32 sm:w-48 transform rotate-[15deg] hidden sm:block">
           <WhiteCylinder className="w-full h-full" />
         </motion.div>
         {/* Top Right Inner: Lime Pyramid */}
-        <motion.div custom={5} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute top-12 right-24 sm:right-48 pointer-events-none drop-shadow-2xl z-0 w-16 sm:w-24 transform -rotate-[30deg] hidden xl:block">
+        <motion.div custom={5} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute top-8 right-16 sm:right-28 pointer-events-none drop-shadow-2xl z-0 w-20 sm:w-28 transform -rotate-[20deg] hidden xl:block">
           <LimePyramid className="w-full h-full" />
         </motion.div>
         {/* Bottom Right: Lime Twister */}
-        <motion.div custom={6} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-20 -right-10 sm:-right-4 pointer-events-none drop-shadow-2xl z-0 w-24 sm:w-40 transform rotate-12 hidden sm:block">
+        <motion.div custom={6} variants={shapeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="absolute -bottom-12 -right-8 sm:-right-4 pointer-events-none drop-shadow-2xl z-0 w-36 sm:w-52 transform rotate-[25deg] hidden sm:block">
           <LimeScribble className="w-full h-full" />
         </motion.div>
 
